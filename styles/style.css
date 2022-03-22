@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital@1&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+  box-sizing: border-box;
+  font-family: 'Red Hat Mono', monospace;
+}
+h2 {
+  margin: 15px;
+  padding-top: 5px;
+  font-weight: bolder;
+}
+#crear{
+  margin-left: 10px;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  font-weight:bold;
+  border-radius: 8px;
+  transition-duration: 0.3s;
+  border: 2px solid #2f9696;
+}
+#crear:hover{
+  background-color: #2f9696;
+  color: white;
+}
+.btn{
+  margin-left: 10px;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  font-weight:bold;
+  border-radius: 8px;
+  transition-duration: 0.3s;
+  border: 2px solid #826ada;
+}
+.btn:hover{
+  background-color: #826ada;
+  color: white;
+}
