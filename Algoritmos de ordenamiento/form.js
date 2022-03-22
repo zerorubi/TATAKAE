@@ -99,7 +99,7 @@ function burbujaBidireccional(vector){
 //Ordenamiento Shell
 function OrdenacionShell(datos){
     let incremento = (datos.length)/2;
-            
+         
     while (incremento > 0){
         for (let i = 0; i < datos.length; i++){
             let j = i;
@@ -121,29 +121,24 @@ function OrdenacionShell(datos){
 }
 
 //Ordenamiento Gnome
-function Gnome(datos) {
-    function moverAtras(i) {
-        for(; i > 0 && datos[i - 1] > datos[i]; --i) {
-            [datos[i], datos[i - 1]] = [datos[i - 1], datos[i]];
+function Gnome(vector){
+    let b= 1;
+    let a= 2;
+    while (b < vector.length){
+        if (vector[b-1] <= vector[b]){
+            b = a;
+            a = a+1; 
+        }else{
+            [vector[b-1],vector[b]]= [vector[b],vector[b-1]];
+            b = b - 1;
+            if (b == 0){
+                b = a;
+                a = a+1;
+            }
         }
     }
-
-    for (let i = 1; i < datos.length; i++) {
-        if (datos[i - 1] > datos[i]) {
-            moverAtras(i);
-        }
-    }
-    document.getElementById("resultado").innerHTML = `el arreglo ordenado es: [ ${datos} ]`;
-}
-//Ordenamiento por monticulos
-const buildMaxHeap = (arr) => {
-    let i = Math.floor(arr.length / 2 - 1);
-    while (i >= 0) {
-      heapify(arr, i, arr.length);
-      i -= 1;
-    }
-}
-  
+    document.getElementById("resultado").innerHTML = `el arreglo ordenado es: [ ${vector} ]`;
+}  
 const heapify = (heap, i, max) => {
     let index;
     let leftChild;
@@ -232,31 +227,49 @@ function quickSort(array) {
 }
 //llamada a los botones
 document.getElementById("Inssercion").onclick = function (){
+    document.getElementById("asin").innerHTML = "La función asintota es: f(x) = 2x^2 + 3x";
+    document.getElementById("orden").innerHTML = "La función es de orden de complejidad: Cuadrática [O(n^2)]";
     inser(numeros);  
 }
 document.getElementById("Seleccion").onclick = function (){
+    document.getElementById("asin").innerHTML = "La función asintota es: f(x) = x^2 + 4x";
+    document.getElementById("orden").innerHTML = "La función es de orden de complejidad: Cuadrática [O(n^2)]";
     selecc(numeros);  
 }
 document.getElementById("Burbuja").onclick = function (){
+    document.getElementById("asin").innerHTML = "La función asintota es: ";
+    document.getElementById("orden").innerHTML = "La función es de orden de complejidad: ";
     burbuja(numeros);  
 }
 document.getElementById("bidireccional").onclick = function (){
+    document.getElementById("asin").innerHTML = "La función asintota es: ";
+    document.getElementById("orden").innerHTML = "La función es de orden de complejidad: [O (n^2)]";
     burbujaBidireccional(numeros);  
 }
 document.getElementById("Shell").onclick = function (){
+    document.getElementById("asin").innerHTML = "La función asintota es: ";
+    document.getElementById("orden").innerHTML = "La función es de orden de complejidad: [O (nlog(n)2)]";
     OrdenacionShell(numeros);  
 }
 document.getElementById("Gnome").onclick = function (){
+    document.getElementById("asin").innerHTML = "La función asintota es: ";
+    document.getElementById("orden").innerHTML = "La función es de orden de complejidad: ";
     Gnome(numeros);  
 }
 document.getElementById("Monticulos").onclick = function (){
+    document.getElementById("asin").innerHTML = "La función asintota es: ";
+    document.getElementById("orden").innerHTML = "La función es de orden de complejidad: ]";
     heapSort(numeros);
 }
 document.getElementById("Mescla").onclick = function (){
+    document.getElementById("asin").innerHTML = "La función asintota es: ";
+    document.getElementById("orden").innerHTML = "La función es de orden de complejidad: ";
     numeros.mergeSort();
     let respuesta= numeros.mergeSort();
     document.getElementById("resultado").innerHTML = `el arreglo ordenado es: [ ${respuesta}} ]`;
 }
 document.getElementById("Rapido").onclick = function (){
+    document.getElementById("asin").innerHTML = "La función asintota es: ";
+    document.getElementById("orden").innerHTML = "La función es de orden de complejidad: [[O (nlog(n)2)]]";
     document.getElementById("resultado").innerHTML = `el arreglo ordenado es: [ ${quickSort(numeros)} ]`;
 }
